@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chevrolet Corvette E-Ray Scrollytelling Experience
 
-## Getting Started
+A high-performance, ultra-premium scrollytelling landing page built to showcase the internal mechanics and dramatic "explosion" view of a supercar.
 
-First, run the development server:
+This project utilizes **Next.js 15 (App router)**, **HTML5 Canvas**, and **Framer Motion** to deliver a buttery-smooth 60fps frame-by-frame visual experience that links securely to your scrollbar.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **HTML5 Canvas Sequence Rendering:** Pre-loads and sequentially draws a massive 168-frame image array, optimizing memory and ensuring no layout jank during scrolling.
+- **Scroll-linked Animations:** Powered by `framer-motion`'s `useScroll` and `useSpring`, mapping scroll 0-1 metrics directly into frame indices and DOM opacities.
+- **Responsive "Contain" Logic:** Dynamically calculates aspect ratios against the viewport to guarantee that intricate floating mechanics (engine blocks, calipers, wiring) are never cropped off-screen on devices of any size.
+- **Scrollytelling "Beats" (Transform Links):**
+   - **Beat A:** Initial load and text reveal ("RAW PERFORMANCE. UNLEASHED.").
+   - **Beat B (25% - 45%):** Body shell lifts, exposing chassis wiring.
+   - **Beat C (50% - 75%):** Extreme internal expansion—V8 block and manifolds separate.
+   - **Beat D (80% - 100%):** Re-assembly and call-to-action button.
+- **Progressive Loading UI:** Elegant startup sequence calculating the precise pre-fetch progress of the heavy frame assets before initializing the scroll canvas.
+- **Custom Scrollbar & Aesthetics:** Pure `#000000` dark-mode blending ensuring frame bounds dissolve into the infinite void seamlessly.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router, Static Export configured)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://motion.dev/)
+- **Rendering Interface:** `<canvas>` Context 2D 
 
-## Learn More
+## 📦 Running Locally
 
-To learn more about Next.js, take a look at the following resources:
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to experience the scroll.
 
-## Deploy on Vercel
+## ☁️ Deployment (Netlify Static Export)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is explicitly configured to be hosted as an edge-optimized static site.
+It includes a `next.config.ts` enforcing `output: "export"` and a `netlify.toml`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Run the build command locally (or in your CI/CD pipeline):
+   ```bash
+   npm run build
+   ```
+2. Next.js will generate a fully static **`out`** directory.
+3. Drag and drop the `out` directory to your [Netlify](https://app.netlify.com/drop) dashboard, or connect the GitHub repository directly and Netlify will handle the rest.
+
+---
+_Concept and interaction inspired by world-class Awwwards mechanical showcases._
